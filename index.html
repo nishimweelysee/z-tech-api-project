@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Book/Home</title>
+    <link rel="stylesheet" href="./public/styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./src/js/pagination.js"></script>
+    <script src="./src/js/pagination.min.js"></script>
+    <style>
+        #pagination div{
+            max-width: fit-content;
+            margin: 0 auto;
+        }
+        #pagination ul{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 5px;
+            border-radius: 5px;
+            border: 1px solid gray;
+            padding: 2px 5px;
+        }
+        #pagination ul li {
+            padding: 3px 5px;
+        }
+        #pagination ul li:hover {
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body class="p-4 m-2 md:m-10 flex flex-col gap-2">
+    <div class="flex gap-2 md:flex-row flex-col justify-around">
+        <div class="flex border-2 w-full rounded">
+            <button class="flex items-center focus:outline-none justify-center px-4 border-r">
+                <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z">
+                    </path>
+                </svg>
+            </button>
+            <input type="text" onkeyup="filterAuthor(this)" class="px-4 py-2 w-full focus:outline-none"
+                placeholder="Search...">
+        </div>
+
+        <div class="flex border-2 w-full rounded">
+            <select
+                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded focus:ring-blue-500 focus:border-blue-500 px-4 py-2 w-full"
+                placeholder="Sort By"
+                onchange="sort(this)"
+                >
+                <option value="" selected disabled>Sort By</option>
+                <option>Title</option>
+                <option>Year</option>
+                <option>Price</option>
+            </select>
+        </div>
+
+        <div date-rangepicker="" class="flex  flex-col md:flex-row">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <input name="start" type="date" id="startDate"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 datepicker-input"
+                    placeholder="Select date start">
+            </div>
+            <span class="mx-4 text-gray-500">to</span>
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <input name="end" type="date" id="endDate" onchange="filterByDates(this)"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 datepicker-input"
+                    placeholder="Select date end">
+            </div>
+        </div>
+
+    </div>
+    <div id="books" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+
+    </div>
+    <div id="pagination" class="m-4">
+
+    </div>
+</body>
+<script src="./src/js/main.js"></script>
+
+</html>

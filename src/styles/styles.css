@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.card-zoom {
+    @apply  overflow-hidden shadow-xl bg-gray-100 p-3 border;
+}
+.card-zoom-image {
+    @apply  transition-all duration-500 ease-in-out transform;
+}
+.card-zoom-text {
+    @apply  transition-all duration-500 ease-in-out transform scale-100 bg-white p-3 flex flex-col gap-2 ;
+}
+.card-zoom:hover .card-zoom-image {
+    @apply scale-150;
+}
+.card-zoom:hover .card-zoom-text {
+    @apply scale-90;
+}
